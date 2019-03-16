@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Developed by Haerul Muttaqin
+  Last modified 3/17/19 5:24 AM
+  Subscribe : https://www.youtube.com/haerulmuttaqin
+  Copyright (c) 2019. All rights reserved
+  -->
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".view.home.HomeActivity">
+
+    <android.support.v4.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+        <RelativeLayout
+            android:id="@+id/headerView"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+            <!-- TODO 1 Add <View>-->
+            <!-- TODO 2 Add <TextView> for Title of Header -->
+
+            <!-- TODO 3 Add Search container -->
+            <!-- We will make a look for the search box with CardView and TextView (this is only for click actions because later we will create another Activity to search) -->
+            <!-- TODO 4 Add <ViewPager> with id viewPagerHeader -->
+
+            <!-- TODO 5 Delete comment to <include below -->
+            <!--<include android:id="@+id/shimmerMeal"
+                layout="@layout/item_view_pager_header_shimmer" />-->
+
+            <!-- TODO 5 Add <TextView> for title of Category list -->
+
+            <!-- TODO 6 Add <RecyclerView> for display the category list -->
+            <!-- TODO 7 Delete comment to <include below -->
+            <!-- <include android:id="@+id/shimmerCategory"
+                layout="@layout/item_recycler_category_shimmer" />-->
+            <TextView
+                android:padding="10dp"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:text="@string/app_name"
+                android:background="@color/colorPrimaryLight"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"/>
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
