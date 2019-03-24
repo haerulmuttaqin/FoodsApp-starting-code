@@ -24,23 +24,87 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="300dp">
-            <!-- TODO 1 Add <View>-->
-            <!-- TODO 2 Add <TextView> for Title of Header -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:background="@color/colorPrimary" />
 
-            <!-- TODO 3 Add Search container -->
-            <!-- We will make a look for the search box with CardView and TextView (this is only for click actions because later we will create another Activity to search) -->
-            <!-- TODO 4 Add <ViewPager> with id viewPagerHeader -->
+            <TextView
+                android:id="@+id/title"
+                android:textColor="@color/colorWhite"
+                android:text="@string/app_name"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-            <!-- TODO 5 Delete comment to <include below -->
-            <!--<include android:id="@+id/shimmerMeal"
-                layout="@layout/item_view_pager_header_shimmer" />-->
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardSearch"
+                android:layout_below="@id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="15dp"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:padding="10dp"
+                    android:text="@string/search_your_recipes"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/ic_search_primary_light"
+                    android:drawableStart="@drawable/ic_search_primary_light"
+                    android:drawablePadding="10dp"/>
+            </android.support.v7.widget.CardView>
 
-            <!-- TODO 5 Add <TextView> for title of Category list -->
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPagerHeader"
+                android:foregroundGravity="center"
+                android:overScrollMode="never"
+                android:clipToPadding="false"
+                android:layout_below="@id/cardSearch"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
 
-            <!-- TODO 6 Add <RecyclerView> for display the category list -->
-            <!-- TODO 7 Delete comment to <include below -->
-            <!-- <include android:id="@+id/shimmerCategory"
-                layout="@layout/item_recycler_category_shimmer" />-->
+            <include android:id="@+id/shimmerMeal"
+                layout="@layout/item_view_pager_header_shimmer" />
+
+            <TextView
+                android:id="@+id/titleCategory"
+                android:text="@string/meal_categories"
+                android:textSize="19sp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/viewPagerHeader"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerCategory"
+                android:scrollbars="none"
+                android:layout_marginTop="10dp"
+                android:clipToPadding="false"
+                android:layout_below="@id/titleCategory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="50dp" />
+
+             <include android:id="@+id/shimmerCategory"
+                layout="@layout/item_recycler_category_shimmer" />
+
             <TextView
                 android:padding="10dp"
                 android:gravity="center"
