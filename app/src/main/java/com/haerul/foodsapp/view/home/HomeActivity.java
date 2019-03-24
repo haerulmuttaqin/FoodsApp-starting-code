@@ -33,8 +33,6 @@ public class HomeActivity extends AppCompatActivity {
     /*
      * TODO 32 Add @BindView Annotation (1)
      *
-     * untuk setiap element yang ada di activity_home
-     *
      * 1. viewPagerHeader
      * 2. recyclerCategory
      *
