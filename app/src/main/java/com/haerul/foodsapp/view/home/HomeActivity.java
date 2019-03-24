@@ -6,6 +6,7 @@
  -----------------------------------------------------------------------------*/
 package com.haerul.foodsapp.view.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -20,13 +21,18 @@ import com.haerul.foodsapp.adapter.RecyclerViewHomeAdapter;
 import com.haerul.foodsapp.adapter.ViewPagerHeaderAdapter;
 import com.haerul.foodsapp.model.Categories;
 import com.haerul.foodsapp.model.Meals;
+import com.haerul.foodsapp.view.category.CategoryActivity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HomeActivity extends AppCompatActivity implements HomeView {
+
+    public static final String EXTRA_CATEGORY = "category";
+    public static final String EXTRA_POSITION = "position";
 
     @BindView(R.id.viewPagerHeader) ViewPager viewPagerMeal;
     @BindView(R.id.recyclerCategory) RecyclerView recyclerViewCategory;
@@ -79,7 +85,11 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         homeAdapter.notifyDataSetChanged();
 
         homeAdapter.setOnItemClickListener((view, position) -> {
-            Toast.makeText(this, category.get(position).getStrCategory(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, CategoryActivity.class);
+            //TODO 8. add extra data (put to intent)
+            /*intent.putExtra(EXTRA_CATEGORY, (Serializable) category);
+            intent.putExtra(EXTRA_POSITION, position);*/
+            //startActivity(intent);
         });
     }
 

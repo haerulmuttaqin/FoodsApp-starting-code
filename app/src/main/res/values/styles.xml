@@ -21,13 +21,14 @@
           <item name="windowNoTitle">true</item>
           <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
           <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
-      </style>
-
-      <style name="AppBarLayoutTheme" parent="@style/ThemeOverlay.AppCompat.Light">
-          <item name="colorControlNormal">@color/colorAccent</item>
-      </style>
-
-      <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-      <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    </style>
+    
+    <style name="AppBarLayoutTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">@color/colorPrimary</item>
+        <item name="titleTextColor">@color/colorPrimary</item>
+    </style>
+    
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
