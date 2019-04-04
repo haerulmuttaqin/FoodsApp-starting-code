@@ -60,9 +60,21 @@ public class CategoryFragment extends Fragment implements CategoryView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-        //TODO 12. getArguments with KEY
-        //TODO 13. set Value from argument data to view
+        if (getArguments() != null) {
+            textCategory.setText(getArguments().getString("EXTRA_DATA_DESC"));
+            Picasso.get()
+                    .load(getArguments().getString("EXTRA_DATA_IMAGE"))
+                    .into(imageCategory);
+            Picasso.get()
+                    .load(getArguments().getString("EXTRA_DATA_IMAGE"))
+                    .into(imageCategoryBg);
+            descDialog = new AlertDialog.Builder(getActivity())
+                    .setTitle(getArguments().getString("EXTRA_DATA_NAME"))
+                    .setMessage(getArguments().getString("EXTRA_DATA_DESC"));
+            
+            CategoryPresenter presenter = new CategoryPresenter(this);
+            presenter.getMealByCategory(getArguments().getString("EXTRA_DATA_NAME"));
+        }
     }
 
     @Override
@@ -77,12 +89,29 @@ public class CategoryFragment extends Fragment implements CategoryView {
 
     @Override
     public void setMeals(List<Meals.Meal> meals) {
-        //TODO 16. set RecyclerViewMealByCategory adapter;
+        RecyclerViewMealByCategory adapter = 
+                new RecyclerViewMealByCategory(getActivity(), meals);
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView.setClipToPadding(false);
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        
+        adapter.setOnItemClickListener((view, position) -> {
+            Toast.makeText(getActivity(), "meal : " +
+                    meals.get(position).getStrMeal(), 
+                    Toast.LENGTH_SHORT).show();
+        });
     }
 
     @Override
     public void onErrorLoading(String message) {
         Utils.showDialogMessage(getActivity(), "Error ", message);
+    }
+    
+    @OnClick(R.id.cardCategory)
+    public void onClick() {
+        descDialog.setPositiveButton("CLOSE", (dialog, which) -> dialog.dismiss());
+        descDialog.show();
     }
     
 }
