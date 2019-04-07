@@ -9,7 +9,6 @@ package com.haerul.foodsapp.view.category;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -27,42 +26,23 @@ import butterknife.ButterKnife;
 
 public class CategoryActivity extends AppCompatActivity {
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.tabLayout)
-    TabLayout tabLayout;
-    @BindView(R.id.viewPager)
-    ViewPager viewPager;
+    //TODO 4. Annotate fields with @BindView and a view ID
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
-        ButterKnife.bind(this);
+        //TODO 5. Bind ButterKnife
 
         initActionBar();
-        initIntent();
         
-    }
-
-    private void initIntent() {
-        Intent intent = getIntent();
-        List<Categories.Category> categories =
-                (List<Categories.Category>) intent.getSerializableExtra(HomeActivity.EXTRA_CATEGORY);
-        int position = intent.getIntExtra(HomeActivity.EXTRA_POSITION, 0);
+        //TODO 9. Init getIntent() data from home activity
         
-        ViewPagerCategoryAdapter adapter = new ViewPagerCategoryAdapter(
-                getSupportFragmentManager(),
-                categories);
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
-        viewPager.setCurrentItem(position, true);
-        adapter.notifyDataSetChanged();
-        
+        //TODO 11. Declare fragment viewPager adapter
     }
 
     private void initActionBar() {
-        setSupportActionBar(toolbar);
+        setSupportActionBar(null);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
