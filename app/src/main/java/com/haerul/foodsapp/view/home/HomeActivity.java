@@ -86,10 +86,9 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
         homeAdapter.setOnItemClickListener((view, position) -> {
             Intent intent = new Intent(this, CategoryActivity.class);
-            //TODO 8. add extra data (put to intent)
-            /*intent.putExtra(EXTRA_CATEGORY, (Serializable) category);
-            intent.putExtra(EXTRA_POSITION, position);*/
-            //startActivity(intent);
+            intent.putExtra(EXTRA_CATEGORY, (Serializable) category);
+            intent.putExtra(EXTRA_POSITION, position);
+            startActivity(intent);
         });
     }
 

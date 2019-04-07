@@ -20,13 +20,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppBarLayoutTheme">
-        <!--TODO 1. Create an ID for the toolbar-->
         <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-        <!--TODO 2. Create an ID for the tabLayout-->
         <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabIndicatorHeight="3dp"
@@ -34,8 +34,8 @@
             app:tabMode="scrollable"
             app:tabContentStart="85dp"/>
     </android.support.design.widget.AppBarLayout>
-    <!--TODO 3. Create an ID for the viewPager-->
     <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

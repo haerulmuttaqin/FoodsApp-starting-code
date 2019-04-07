@@ -9,7 +9,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.haerul.foodsapp"
+        applicationId "com.haerul.foodsapp2"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1

@@ -12,8 +12,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 
-// TODO 6. implements Serializable to Categories class
-public class Categories {
+public class Categories implements Serializable {
 
     @SerializedName("categories")
     @Expose
@@ -27,8 +26,7 @@ public class Categories {
         this.categories = categories;
     }
 
-    // TODO 7. implements Serializable to Category class
-    public static class Category {
+    public static class Category implements Serializable {
 
         @SerializedName("idCategory")
         @Expose
