@@ -6,7 +6,6 @@
   Copyright (c) 2019. All rights reserved
   -->
 
-<!--TODO #2 this is a layout for detailed activity, please note the id-->
 
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
