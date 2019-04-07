@@ -8,4 +8,12 @@
     <string name="app_name">Foods App</string>
     <string name="search_your_recipes">Search Your Recipes…</string>
     <string name="meal_categories">Meal Categories</string>
+    <string name="category">Category</string>
+    <string name="country">Country</string>
+    <string name="instructions">INSTRUCTIONS</string>
+    <string name="dot_loading">...</string>
+    <string name="Ingredients">INGREDIENTS</string>
+    <string name="youtube">YOUTUBE</string>
+    <string name="source">SOURCE</string>
+    <string name="favorite">Favorite</string>
 </resources>

@@ -32,6 +32,7 @@
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"
             android:label="Category"/>
+        <!--TODO #1 Add DetailActivity -->
     </application>
 
 </manifest>

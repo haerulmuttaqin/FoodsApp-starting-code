@@ -33,6 +33,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     public static final String EXTRA_CATEGORY = "category";
     public static final String EXTRA_POSITION = "position";
+    public static final String EXTRA_DETAIL = "detail";
 
     @BindView(R.id.viewPagerHeader) ViewPager viewPagerMeal;
     @BindView(R.id.recyclerCategory) RecyclerView recyclerViewCategory;
@@ -70,7 +71,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         headerAdapter.notifyDataSetChanged();
 
         headerAdapter.setOnItemClickListener((v, position) -> {
-            Toast.makeText(this, meal.get(position).getStrMeal(), Toast.LENGTH_SHORT).show();
+            //TODO #8.1 make an intent to DetailActivity (get the name of the meal from the edit text view, then send the name of the meal to DetailActivity)
         });
     }
 

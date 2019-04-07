@@ -97,9 +97,7 @@ public class CategoryFragment extends Fragment implements CategoryView {
         adapter.notifyDataSetChanged();
         
         adapter.setOnItemClickListener((view, position) -> {
-            Toast.makeText(getActivity(), "meal : " +
-                    meals.get(position).getStrMeal(), 
-                    Toast.LENGTH_SHORT).show();
+            //TODO #8.2 make an intent to DetailActivity (get the name of the meal from the edit text view, then send the name of the meal to DetailActivity)
         });
     }
 
