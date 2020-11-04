@@ -1,20 +1,13 @@
 /*-----------------------------------------------------------------------------
  - Developed by Haerul Muttaqin                                               -
- - Last modified 3/17/19 5:24 AM                                              -
+ - Last modified 4/7/19 5:49 PM                                               -
  - Subscribe : https://www.youtube.com/haerulmuttaqin                         -
  - Copyright (c) 2019. All rights reserved                                    -
  -----------------------------------------------------------------------------*/
-package com.haerul.foodsapp.view.home;
+package com.haerul.foodsapp.view.detail;
 
-import com.haerul.foodsapp.model.Categories;
 import com.haerul.foodsapp.model.Meals;
 
-import java.util.List;
-
-public interface HomeView {
-    void showLoading();
-    void hideLoading();
-    void setMeal(List<Meals.Meal> meal);
-    void setCategory(List<Categories.Category> category);
-    void onErrorLoading(String message);
+public interface DetailView {
+    //TODO #4 Add void method  for showLoading, hideLoading, setMeal, onErrorLoading;
 }

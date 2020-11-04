@@ -1,0 +1,16 @@
+<!--
+  Developed by Haerul Muttaqin
+  Last modified 4/7/19 6:37 PM
+  Subscribe : https://www.youtube.com/haerulmuttaqin 
+  Copyright (c) 2019. All rights reserved
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24.0"
+        android:viewportHeight="24.0">
+    <path
+        android:fillColor="#EC2D2D"
+        android:pathData="M8,5v14l11,-7z"/>
+</vector>

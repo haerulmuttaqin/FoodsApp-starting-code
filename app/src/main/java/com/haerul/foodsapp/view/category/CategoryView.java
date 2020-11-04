@@ -1,20 +1,18 @@
 /*-----------------------------------------------------------------------------
  - Developed by Haerul Muttaqin                                               -
- - Last modified 3/17/19 5:24 AM                                              -
+ - Last modified 3/24/19 3:33 AM                                              -
  - Subscribe : https://www.youtube.com/haerulmuttaqin                         -
  - Copyright (c) 2019. All rights reserved                                    -
  -----------------------------------------------------------------------------*/
-package com.haerul.foodsapp.view.home;
+package com.haerul.foodsapp.view.category;
 
-import com.haerul.foodsapp.model.Categories;
 import com.haerul.foodsapp.model.Meals;
 
 import java.util.List;
 
-public interface HomeView {
+public interface CategoryView {
     void showLoading();
     void hideLoading();
-    void setMeal(List<Meals.Meal> meal);
-    void setCategory(List<Categories.Category> category);
+    void setMeals(List<Meals.Meal> meals);
     void onErrorLoading(String message);
 }
