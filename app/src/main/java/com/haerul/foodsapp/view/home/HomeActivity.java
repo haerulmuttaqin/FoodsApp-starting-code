@@ -8,12 +8,12 @@ package com.haerul.foodsapp.view.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.haerul.foodsapp.R;
 import com.haerul.foodsapp.Utils;
@@ -35,8 +35,10 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     public static final String EXTRA_POSITION = "position";
     public static final String EXTRA_DETAIL = "detail";
 
-    @BindView(R.id.viewPagerHeader) ViewPager viewPagerMeal;
-    @BindView(R.id.recyclerCategory) RecyclerView recyclerViewCategory;
+    @BindView(R.id.viewPagerHeader)
+    ViewPager viewPagerMeal;
+    @BindView(R.id.recyclerCategory)
+    RecyclerView recyclerViewCategory;
 
     HomePresenter presenter;
 
