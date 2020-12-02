@@ -6,15 +6,6 @@
  -----------------------------------------------------------------------------*/
 package com.haerul.foodsapp.view.detail;
 
-import android.support.annotation.NonNull;
-
-import com.haerul.foodsapp.Utils;
-import com.haerul.foodsapp.model.Meals;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class DetailPresenter {
     private DetailView view;
 
