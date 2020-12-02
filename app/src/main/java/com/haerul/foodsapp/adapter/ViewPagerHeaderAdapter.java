@@ -7,13 +7,14 @@
 package com.haerul.foodsapp.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
+import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.haerul.foodsapp.R;
 import com.haerul.foodsapp.model.Meals;
