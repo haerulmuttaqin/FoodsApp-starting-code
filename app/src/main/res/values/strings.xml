@@ -16,4 +16,7 @@
     <string name="youtube">YOUTUBE</string>
     <string name="source">SOURCE</string>
     <string name="favorite">Favorite</string>
+    <string name="banner_ads_id">ca-app-pub-7622707640153634/8903034875</string>
+    <string name="interstitial_ads_id">ca-app-pub-7622707640153634/9090737130</string>
+    <string name="interstitial_video_ads_id">ca-app-pub-7622707640153634/9554126783</string>
 </resources>

@@ -35,6 +35,13 @@
         <activity 
             android:name=".view.detail.DetailActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".view.favorite.FavoriteActivity"
+            android:theme="@style/AppTheme"
+            android:label="Favorite"/>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7622707640153634~8677495206"/>
     </application>
 
 </manifest>

@@ -7,7 +7,8 @@
   -->
 
 
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -16,14 +17,14 @@
     android:background="@color/colorBackground"
     tools:context=".view.detail.DetailActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:fitsSystemWindows="true"
         android:theme="@style/AppBarLayoutTheme">
 
-        <android.support.design.widget.CollapsingToolbarLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -40,18 +41,18 @@
                 android:src="@drawable/shadow_bottom_to_top"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>>
+    </com.google.android.material.appbar.AppBarLayout>
 
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,7 +75,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     app:cardUseCompatPadding="true"
                     app:cardCornerRadius="10dp"
                     android:layout_width="match_parent"
@@ -105,8 +106,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </LinearLayout>
-                </android.support.v7.widget.CardView>
-                <android.support.v7.widget.CardView
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
                     app:cardUseCompatPadding="true"
                     app:cardCornerRadius="10dp"
                     android:layout_width="match_parent"
@@ -137,7 +138,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </LinearLayout>
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <TextView
@@ -156,7 +157,7 @@
                 android:drawableEnd="@drawable/ic_info"
                 android:drawableRight="@drawable/ic_info" />
             
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 app:cardUseCompatPadding="true"
                 app:cardCornerRadius="10dp"
                 android:layout_width="match_parent"
@@ -174,10 +175,9 @@
                     android:textColor="@color/colorPrimaryText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
             
-
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 app:cardUseCompatPadding="true"
                 app:cardCornerRadius="10dp"
                 android:layout_width="match_parent"
@@ -231,14 +231,14 @@
                        </LinearLayout>
                    </LinearLayout>
                </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_weight="1"
                     app:cardUseCompatPadding="true"
                     app:cardBackgroundColor="#FFE1E1"
@@ -262,8 +262,8 @@
                         android:drawablePadding="10dp"
                         android:drawableLeft="@drawable/ic_play"
                         android:drawableStart="@drawable/ic_play" />
-                </android.support.v7.widget.CardView>
-                <android.support.v7.widget.CardView
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
                     android:layout_weight="1"
                     app:cardUseCompatPadding="true"
                     app:cardBackgroundColor="#D0FFDB"
@@ -287,10 +287,10 @@
                         android:drawablePadding="10dp"
                         android:drawableLeft="@drawable/ic_link"
                         android:drawableStart="@drawable/ic_link" />
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

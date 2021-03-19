@@ -6,7 +6,7 @@
  -----------------------------------------------------------------------------*/
 package com.haerul.foodsapp.view.home;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.haerul.foodsapp.Utils;
 import com.haerul.foodsapp.model.Categories;

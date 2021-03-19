@@ -15,7 +15,7 @@ import retrofit2.http.Query;
 
 public interface FoodApi {
 
-    @GET("latest.php")
+    @GET("random.php")
     Call<Meals> getMeal();
 
     @GET("categories.php")

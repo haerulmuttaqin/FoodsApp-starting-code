@@ -8,23 +8,27 @@ package com.haerul.foodsapp.view.category;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.haerul.foodsapp.R;
 import com.haerul.foodsapp.Utils;
 import com.haerul.foodsapp.adapter.RecyclerViewMealByCategory;
+import com.haerul.foodsapp.database.FavoriteRepository;
 import com.haerul.foodsapp.model.Meals;
 import com.haerul.foodsapp.view.detail.DetailActivity;
 import com.squareup.picasso.Picasso;
@@ -39,7 +43,9 @@ import static com.haerul.foodsapp.view.home.HomeActivity.EXTRA_DETAIL;
 
 public class CategoryFragment extends Fragment implements CategoryView {
 
-    @BindView(R.id.recyclerView) 
+    public static final String API_KEY = "1a6fb5e756684298b67fbd7e9d8ffd77";
+
+    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
@@ -51,6 +57,10 @@ public class CategoryFragment extends Fragment implements CategoryView {
     TextView textCategory;
     
     AlertDialog.Builder descDialog;
+    FavoriteRepository repository;
+
+    @BindView(R.id.adView)
+    AdView adView;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -63,6 +73,8 @@ public class CategoryFragment extends Fragment implements CategoryView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        repository = new FavoriteRepository(getActivity().getApplication());
 
         if (getArguments() != null) {
             textCategory.setText(getArguments().getString("EXTRA_DATA_DESC"));
@@ -79,6 +91,11 @@ public class CategoryFragment extends Fragment implements CategoryView {
             CategoryPresenter presenter = new CategoryPresenter(this);
             presenter.getMealByCategory(getArguments().getString("EXTRA_DATA_NAME"));
         }
+        
+        MobileAds.initialize(getActivity().getApplicationContext(), getResources().getString(R.string.banner_ads_id));
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
 
     @Override
@@ -94,7 +111,7 @@ public class CategoryFragment extends Fragment implements CategoryView {
     @Override
     public void setMeals(List<Meals.Meal> meals) {
         RecyclerViewMealByCategory adapter = 
-                new RecyclerViewMealByCategory(getActivity(), meals);
+                new RecyclerViewMealByCategory(getActivity(), meals, repository);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         recyclerView.setClipToPadding(false);
         recyclerView.setAdapter(adapter);

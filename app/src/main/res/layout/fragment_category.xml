@@ -13,13 +13,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.category.CategoryFragment">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <android.support.v7.widget.CardView
+            <com.google.android.gms.ads.AdView
+                android:layout_marginTop="16dp"
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ads:adSize="SMART_BANNER"
+                ads:adUnitId="@string/banner_ads_id"/>
+            <androidx.cardview.widget.CardView
+                android:layout_below="@id/adView"
                 android:id="@+id/cardCategory"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
@@ -60,8 +69,8 @@
                         android:textSize="15sp"
                         android:text="@string/meal_categories"/>
                 </RelativeLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.RecyclerView
+            </androidx.cardview.widget.CardView>
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_below="@id/cardCategory"
                 android:layout_marginLeft="8dp"
@@ -76,6 +85,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
     
 </FrameLayout>

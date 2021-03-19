@@ -5,16 +5,15 @@
  - Copyright (c) 2019. All rights reserved                                    -
  -----------------------------------------------------------------------------*/
 apply plugin: 'com.android.application'
-
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.haerul.foodsapp"
         minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        targetSdkVersion 30
+        versionCode 2
+        versionName "2.0"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
@@ -32,10 +31,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //noinspection GradleCompatible
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation 'com.android.support:cardview-v7:28.0.0'
-    implementation 'com.android.support:design:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
 
     implementation 'com.squareup.picasso:picasso:2.71828'
 
@@ -48,11 +47,22 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.4.0'
 
     //noinspection GradleDependency
-    implementation 'com.jakewharton:butterknife:9.0.0'
+    implementation 'com.jakewharton:butterknife:10.1.0'
     //noinspection GradleDependency
-    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+
+    //room database
+    implementation 'androidx.room:room-runtime:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0'
 
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+
+
+    //Ads
+    implementation 'com.google.android.gms:play-services-ads:17.2.1'
+
 }

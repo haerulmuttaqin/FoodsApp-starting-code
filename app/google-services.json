@@ -1,0 +1,207 @@
+{
+  "project_info": {
+    "project_number": "184225706542",
+    "firebase_url": "https://my-firebase-42479.firebaseio.com",
+    "project_id": "my-firebase-42479",
+    "storage_bucket": "my-firebase-42479.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184225706542:android:f0c858d14e51c4ed",
+        "android_client_info": {
+          "package_name": "com.haerul.foodsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184225706542-hrv1f5iouaki461umhfhjm7hug04ko41.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.haerul.foodsapp",
+            "certificate_hash": "084af5f5412b3406de5dbb53450e31ac30590131"
+          }
+        },
+        {
+          "client_id": "184225706542-5iramp7ve3196d7og5guo41nkmtlt6tv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCahdvc1T2CL632oXtkNZ6TVz9_DYZ23Lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184225706542-5iramp7ve3196d7og5guo41nkmtlt6tv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-7622707640153634~7781524894"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184225706542:android:17b82cf6ad3068b4",
+        "android_client_info": {
+          "package_name": "com.haerul.popularnews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184225706542-v1phvalvi13c26njsuib930pe4bimasf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.haerul.popularnews",
+            "certificate_hash": "084af5f5412b3406de5dbb53450e31ac30590131"
+          }
+        },
+        {
+          "client_id": "184225706542-e9po2sug3o01vg25cklvb5ab3kennd3i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.haerul.popularnews",
+            "certificate_hash": "10818441b4d924afb61caeb838b82e6834da8986"
+          }
+        },
+        {
+          "client_id": "184225706542-5iramp7ve3196d7og5guo41nkmtlt6tv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCahdvc1T2CL632oXtkNZ6TVz9_DYZ23Lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184225706542-5iramp7ve3196d7og5guo41nkmtlt6tv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-7622707640153634~8677495206"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184225706542:android:0e4ec6c01492476a",
+        "android_client_info": {
+          "package_name": "com.haerul.swipeviewpager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184225706542-1ujeg3k34269obf7tlnhhpt33l8dtq67.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.haerul.swipeviewpager",
+            "certificate_hash": "10818441b4d924afb61caeb838b82e6834da8986"
+          }
+        },
+        {
+          "client_id": "184225706542-5iramp7ve3196d7og5guo41nkmtlt6tv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCahdvc1T2CL632oXtkNZ6TVz9_DYZ23Lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184225706542-5iramp7ve3196d7og5guo41nkmtlt6tv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-7622707640153634~4907255672"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184225706542:android:dc4fa6dcc331b948",
+        "android_client_info": {
+          "package_name": "com.haerulmuttaqin.myfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184225706542-oa79cnik3fn8cmo32nu042hib7q4gm9q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.haerulmuttaqin.myfirebase",
+            "certificate_hash": "10818441b4d924afb61caeb838b82e6834da8986"
+          }
+        },
+        {
+          "client_id": "184225706542-5iramp7ve3196d7og5guo41nkmtlt6tv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCahdvc1T2CL632oXtkNZ6TVz9_DYZ23Lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184225706542-5iramp7ve3196d7og5guo41nkmtlt6tv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184225706542:android:1af31bab3a9aff9e",
+        "android_client_info": {
+          "package_name": "com.haerulmuttaqin.popularnews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184225706542-s0im4hcrb6dofhlba62ra2hdosgs0jpq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.haerulmuttaqin.popularnews",
+            "certificate_hash": "084af5f5412b3406de5dbb53450e31ac30590131"
+          }
+        },
+        {
+          "client_id": "184225706542-5iramp7ve3196d7og5guo41nkmtlt6tv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCahdvc1T2CL632oXtkNZ6TVz9_DYZ23Lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184225706542-5iramp7ve3196d7og5guo41nkmtlt6tv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

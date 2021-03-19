@@ -11,11 +11,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,8 +20,19 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.ViewCompat;
+
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.haerul.foodsapp.R;
 import com.haerul.foodsapp.Utils;
+import com.haerul.foodsapp.database.FavoriteRepository;
+import com.haerul.foodsapp.model.MealFavorite;
 import com.haerul.foodsapp.model.Meals;
 import com.squareup.picasso.Picasso;
 
@@ -71,6 +78,13 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
     
     @BindView(R.id.source)
     TextView source;
+
+    private FavoriteRepository repository;
+    private Meals.Meal meal;
+    MenuItem favoriteItem;
+    String strMealName;
+
+    private InterstitialAd mInterstitialAd;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,13 +92,19 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
 
+        repository = new FavoriteRepository(getApplication());  
+
         setupActionBar();
         
         Intent intent = getIntent();
-        String mealName = intent.getStringExtra(EXTRA_DETAIL);
+        strMealName = intent.getStringExtra(EXTRA_DETAIL);
 
         DetailPresenter presenter = new DetailPresenter(this);
-        presenter.getMealById(mealName);
+        presenter.getMealById(strMealName);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getResources().getString(R.string.interstitial_ads_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
         
     }
 
@@ -118,7 +138,8 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_detail, menu);
-        MenuItem favoriteItem = menu.findItem(R.id.favorite);
+        favoriteItem = menu.findItem(R.id.favorite);
+        setFavoriteItem();
         Drawable favoriteItemColor = favoriteItem.getIcon();
         setupColorActionBarIcon(favoriteItemColor);
         return true;
@@ -130,8 +151,38 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
             case android.R.id.home :
                 onBackPressed();
                 return true;
+            case R.id.favorite:
+                addOrRemoveToFavorite();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void addOrRemoveToFavorite() {
+        if (isFavorite()) {
+            repository.delete(meal.getStrMeal());
+        } else {
+            MealFavorite mealFavorite = new MealFavorite();
+            mealFavorite.idMeal = meal.getIdMeal();
+            mealFavorite.strMeal = meal.getStrMeal();
+            mealFavorite.strMealThumb = meal.getStrMealThumb();
+            repository.insert(mealFavorite);
+        }
+
+        setFavoriteItem();
+
+    }
+
+    private boolean isFavorite() {
+        return repository.isFavorite(strMealName);
+    }
+
+    private void setFavoriteItem() {
+        if (isFavorite()) {
+            favoriteItem.setIcon(getResources().getDrawable(R.drawable.ic_favorite));
+        } else {
+            favoriteItem.setIcon(getResources().getDrawable(R.drawable.ic_favorite_border));
         }
     }
 
@@ -147,7 +198,8 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
 
     @Override
     public void setMeal(Meals.Meal meal) {
-
+        this.meal = meal;
+        
         Picasso.get().load(meal.getStrMealThumb()).into(mealThumb);
         collapsingToolbarLayout.setTitle(meal.getStrMeal());
         category.setText(meal.getStrCategory());
@@ -297,5 +349,29 @@ public class DetailActivity extends AppCompatActivity implements DetailView {
     @Override
     public void onErrorLoading(String message) {
         Utils.showDialogMessage(this, "Error", message);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            finish();
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        supportFinishAfterTransition();
+                    }
+                }, 200);
+            }
+        });
+        super.onBackPressed();
     }
 }

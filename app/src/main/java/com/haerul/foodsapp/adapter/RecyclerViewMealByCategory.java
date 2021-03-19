@@ -1,14 +1,15 @@
 /*-----------------------------------------------------------------------------
  - Developed by Haerul Muttaqin                                               -
- - Last modified 3/24/19 5:35 AM                                              -
+ - Last modified 4/10/19 1:22 AM                                              -
  - Subscribe : https://www.youtube.com/haerulmuttaqin                         -
  - Copyright (c) 2019. All rights reserved                                    -
  -----------------------------------------------------------------------------*/
 package com.haerul.foodsapp.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.haerul.foodsapp.R;
+import com.haerul.foodsapp.database.FavoriteRepository;
+import com.haerul.foodsapp.model.MealFavorite;
 import com.haerul.foodsapp.model.Meals;
 import com.squareup.picasso.Picasso;
 
@@ -29,10 +32,12 @@ public class RecyclerViewMealByCategory extends RecyclerView.Adapter<RecyclerVie
     private List<Meals.Meal> meals;
     private Context context;
     private static ClickListener clickListener;
+    private FavoriteRepository repository;
 
-    public RecyclerViewMealByCategory(Context context, List<Meals.Meal> meals) {
+    public RecyclerViewMealByCategory(Context context, List<Meals.Meal> meals, FavoriteRepository repository) {
         this.meals = meals;
         this.context = context;
+        this.repository = repository;
     }
 
     @NonNull
@@ -51,6 +56,21 @@ public class RecyclerViewMealByCategory extends RecyclerView.Adapter<RecyclerVie
 
         String strMealName = meals.get(i).getStrMeal();
         viewHolder.mealName.setText(strMealName);
+
+        if (isFavorite(strMealName)) {
+            viewHolder.love.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_favorite));
+        } else {
+            viewHolder.love.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_favorite_border));
+        }
+
+        viewHolder.love.setOnClickListener(v -> {
+            addOrRemoveToFavorite(meals.get(i));
+            if (isFavorite(strMealName)) {
+                viewHolder.love.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_favorite));
+            } else {
+                viewHolder.love.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_favorite_border));
+            }
+        });
     }
 
 
@@ -64,6 +84,8 @@ public class RecyclerViewMealByCategory extends RecyclerView.Adapter<RecyclerVie
         ImageView mealThumb;
         @BindView(R.id.mealName)
         TextView mealName;
+        @BindView(R.id.love) 
+        ImageView love;
         RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -84,5 +106,21 @@ public class RecyclerViewMealByCategory extends RecyclerView.Adapter<RecyclerVie
 
     public interface ClickListener {
         void onClick(View view, int position);
+    }
+
+    private void addOrRemoveToFavorite(Meals.Meal meal) {
+        if (isFavorite(meal.getStrMeal())) {
+            repository.delete(meal.getStrMeal());
+        } else {
+            MealFavorite mealFavorite = new MealFavorite();
+            mealFavorite.idMeal = meal.getIdMeal();
+            mealFavorite.strMeal = meal.getStrMeal();
+            mealFavorite.strMealThumb = meal.getStrMealThumb();
+            repository.insert(mealFavorite);
+        }
+    }
+
+    private boolean isFavorite(String strMealName) {
+        return repository.isFavorite(strMealName);
     }
 }
